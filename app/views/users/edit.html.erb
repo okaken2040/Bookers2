@@ -1,0 +1,64 @@
+<div class="body">
+	<div class="container">
+
+		<p id="notice"></p>
+		<h2>User info</h2>
+
+		<%
+=begin%>
+ <form class="edit_user" id="edit_user_5682" enctype="multipart/form-data" action="/users/5682" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="DQmYm5Gr0iDRZ+cDFZE9uPs0LRlA8ygEoLP2/3ifKoH14eRbpVVR3Es+EHj3Zuez6AB8dHuT98ScONFNEDsmJw=="> 
+<%
+=end%>
+		<%= form_for(@user) do |f| %>
+			<div class="field">
+				<label for="user_name">Name</label>
+				<%
+=begin%>
+ <input class="name" type="text" value="okaken2040" name="user[name]" id="user_name"> 
+<%
+=end%>
+				<%= f.text_field:name, autofocus: true, class:"name", id:"user_name", placeholder:"名前"%>
+			</div>
+
+			<div class="field">
+				<label for="user_image">Image</label>
+				<%
+=begin%>
+ <input value="{}" data-reference="8901178a9885f39100088fa423198d76" type="hidden" name="user[profile_image]"> 
+<%
+=end%>
+<%= f.attachment_field:image, placeholder: "プロフィール画像" %>
+				<%
+=begin%>
+ <input class="user_image" data-reference="8901178a9885f39100088fa423198d76" include_hidden="false" type="file" name="user[profile_image]" id="user_profile_image"> 
+<%
+=end%>
+			</div>
+
+			<div class="field">
+				<label for="user_introduction">Introduction</label>
+				<%
+=begin%>
+ <textarea class="introduction" name="user[introduction]" id="user_introduction"></textarea> 
+<%
+=end%>
+				<%= f.text_area:intro, class:"introduction", id:"user_introduction", placeholder:"コメントここに"%>
+			</div>
+
+			<div class="actions">
+				<%
+=begin%>
+ <input type="submit" name="commit" value="Update User" data-disable-with="Update User"> 
+<%
+=end%>
+				<%= f.submit "Update User"%>
+			</div>
+		<% end %>
+		<%
+=begin%>
+ </form> 
+<%
+=end%>
+
+	</div>
+</div>
