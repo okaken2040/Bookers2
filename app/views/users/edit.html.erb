@@ -6,6 +6,14 @@
 <%
 =end%>
 		<%= form_for(@user) do |f| %>
+
+			<% if @user.errors.any? %>
+				<%= @user.errors.count %>件のerrorが発生しました
+				<% @user.errors.full_messages.each do |message| %>
+						<%= message %>
+				<% end %>
+			<% end %>
+
 			<div class="field">
 				<label for="user_name">Name</label>
 				<%
@@ -23,7 +31,7 @@
  <input value="{}" data-reference="8901178a9885f39100088fa423198d76" type="hidden" name="user[profile_image]"> 
 <%
 =end%>
-<%= f.attachment_field:image, placeholder: "プロフィール画像" %>
+<%= f.attachment_field:profile_image, placeholder: "プロフィール画像" %>
 				<%
 =begin%>
  <input class="user_image" data-reference="8901178a9885f39100088fa423198d76" include_hidden="false" type="file" name="user[profile_image]" id="user_profile_image"> 
@@ -38,7 +46,7 @@
  <textarea class="introduction" name="user[introduction]" id="user_introduction"></textarea> 
 <%
 =end%>
-				<%= f.text_area:intro, class:"introduction", id:"user_introduction", placeholder:"コメントここに"%>
+				<%= f.text_area:introduction, class:"introduction", id:"user_introduction", placeholder:"コメントここに"%>
 			</div>
 
 			<div class="actions">
